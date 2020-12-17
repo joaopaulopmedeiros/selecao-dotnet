@@ -1,13 +1,81 @@
 .auth {
-    width: 100%;
-    height: 100%;
-
-    background: #f0f7ff;
-
-    display: flex;
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-.rightBox {
-    width: 50%;
-    background: #1976d2;
+.auth:before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+}
+
+.panel {
+  height: 100%;
+  min-height: 100vh;
+
+  padding: 6rem 17% 2rem 12%;
+
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  z-index: 8;
+
+  color:#fff;
+
+  h3, p, .btn-transparent {
+    z-index: 8;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+  }
+
+  .btn.transparent {
+    width: 110px;
+    height: 35px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .auth:before {
+    width: 1500px;
+    height: 1500px;
+    transform: translateX(-50%);
+    bottom: 72%;
+    left: 50%;
+    right: initial;
+    top: initial;
+  }
+
+  .panel {
+    padding: 2.5rem 8%;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media(min-width: 1600px) {
+  .auth:before {
+    border-radius: 0%;
+  }
 }
