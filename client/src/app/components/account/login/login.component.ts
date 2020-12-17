@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AccountService } from '../shared/account.service';
@@ -9,18 +10,20 @@ import { AccountService } from '../shared/account.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  login = {
-    email: '',
-    password: '',
-  };
+  loginForm!: FormGroup;
 
   constructor(private accountService: AccountService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl(),
+    });
+  }
 
   async onSubmit() {
     try {
-      const result = await this.accountService.login(this.login);
+      const result = await this.accountService.login(this.loginForm);
       console.log(`login efetuado: ${result}`);
       this.router.navigate(['']);
     } catch (error) {
