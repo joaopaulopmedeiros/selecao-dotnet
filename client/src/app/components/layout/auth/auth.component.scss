@@ -54,6 +54,20 @@
     height: 35px;
     font-size: 0.7rem;
   }
+
+  img {
+    position: absolute;
+    bottom: 16vh;
+    left: 6vw;
+
+    width: 440px;
+    z-index: 8;
+
+    display: block;
+
+    transition: 1s 0.7s ease-in-out;
+  }
+
 }
 
 @media (max-width: 1024px) {
@@ -71,7 +85,12 @@
     padding: 2.5rem 8%;
     text-align: center;
     width: 100%;
+
+    img {
+      display: none;
+    }
   }
+
 }
 
 @media(min-width: 1600px) {
