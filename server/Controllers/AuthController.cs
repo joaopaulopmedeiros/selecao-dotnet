@@ -9,6 +9,7 @@ using App.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Security.Claims;
+using App.Helpers;
 
 namespace App.Controllers
 {
@@ -24,7 +25,7 @@ namespace App.Controllers
         )
         {
             User user = await (from u in context.Users
-                               where u.Email == model.Email && u.Password == model.Password
+                               where u.Email == model.Email && u.Password == Hash.Make(model.Password)
                                select u).FirstOrDefaultAsync();
 
             if (user == null)
@@ -50,6 +51,7 @@ namespace App.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.Password = Hash.Make(model.Password);
                 context.Users.Add(model);
                 await context.SaveChangesAsync();
                 return model;
@@ -63,16 +65,11 @@ namespace App.Controllers
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
-        public async Task<ActionResult<dynamic>> Authenticated([FromServices] DataContext context)
+        public async Task<ActionResult<User>> Authenticated([FromServices] DataContext context)
         {
             User user = await (from u in context.Users
                                where u.Email == User.Identity.Name
                                select u).FirstOrDefaultAsync();
-
-            if (user == null)
-            {
-                return NotFound(new { message = "Usuário não encontrado." });
-            }
 
             return user;
         }
