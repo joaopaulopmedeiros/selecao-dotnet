@@ -14,6 +14,6 @@ namespace App.Models
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public double Price { get; set; }
-        public ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 }
