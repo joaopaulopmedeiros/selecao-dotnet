@@ -13,6 +13,8 @@ namespace App.Controllers
     public class PaymentController : ControllerBase
     {
 
+        [HttpGet]
+        [Route("")]
         public async Task<ActionResult<List<Payment>>> Get([FromServices] DataContext context)
         {
             var payments = await context.Payments.ToListAsync();
