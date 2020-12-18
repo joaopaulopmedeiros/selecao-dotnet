@@ -39,6 +39,25 @@ namespace App.Controllers
             };
         }
 
+        [HttpPost]
+        [Route("register")]
+        public async Task<ActionResult<User>> Post(
+            [FromServices] DataContext context,
+            [FromBody] User model
+        )
+        {
+            if (ModelState.IsValid)
+            {
+                context.Users.Add(model);
+                await context.SaveChangesAsync();
+                return model;
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+        }
+
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
