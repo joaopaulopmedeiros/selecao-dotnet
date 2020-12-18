@@ -30,6 +30,9 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 <img src="./.github/screens/login-desktop.png" width="100%"/>
 <img src="./.github/screens/login-mobile.png" width="25%">
 
+#### Home
+<img src="./.github/screens/home-desktop.png" width="100%"/>
+
 ## API Documentation
 
 #### [Swagger](/.github/evaluation_criteria.md)
