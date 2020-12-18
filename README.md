@@ -24,14 +24,7 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 - [Angular](https://angular.io/)
 
 ## UI - User Interface
-
-#### Login
-
-<img src="./.github/screens/login-desktop.png" width="100%"/>
-<img src="./.github/screens/login-mobile.png" width="25%">
-
-#### Home
-<img src="./.github/screens/home-desktop.png" width="100%"/>
+<img src="./.github/screens/presentation.png" width="80%"/>
 
 ## API Documentation
 
