@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace App.Models
 {
@@ -19,7 +20,7 @@ namespace App.Models
         [StringLength(14, ErrorMessage = "Este campo deve conter o formato adequado")]
         [DisplayFormat(DataFormatString = "XXX.XXX.XXX-XX")]
         public string Cpf { get; set; }
-        
+
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [StringLength(14, ErrorMessage = "Este campo deve conter o formato adequado")]
         public string Email { get; set; }
@@ -27,5 +28,12 @@ namespace App.Models
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [MinLength(8, ErrorMessage = "Este campo deve conter entre 3 e 30 caracteres")]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "Este campo é obrigatório")]
+        [StringLength(16, ErrorMessage = "Este campo deve conter o formato adequado")]
+        [DisplayFormat(DataFormatString = "XXX.XXX.XXX.XXXXX")]
+        public string CreditCard { get; set; }
+
+        public ICollection<Payment> Payments { get; set; }
     }
 }
