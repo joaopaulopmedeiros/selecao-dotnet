@@ -35,3 +35,7 @@ C:\Users\user\Documents\indra-JPA\selecao-dotnet\server\obj\Debug\net5.0\server.
 C:\Users\user\Documents\indra-JPA\selecao-dotnet\server\obj\Debug\net5.0\ref\server.dll
 C:\Users\user\Documents\indra-JPA\selecao-dotnet\server\obj\Debug\net5.0\server.pdb
 C:\Users\user\Documents\indra-JPA\selecao-dotnet\server\obj\Debug\net5.0\server.genruntimeconfig.cache
+C:\Users\user\Documents\indra-JPA\selecao-dotnet\server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\Documents\indra-JPA\selecao-dotnet\server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\Documents\indra-JPA\selecao-dotnet\server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\user\Documents\indra-JPA\selecao-dotnet\server\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll

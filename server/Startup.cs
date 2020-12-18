@@ -15,6 +15,8 @@ using System.Text;
 using App;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using App.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace server
 {
@@ -30,6 +32,9 @@ namespace server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            services.AddScoped<DataContext, DataContext>();
+
             services.AddCors();
             services.AddControllers();
 
