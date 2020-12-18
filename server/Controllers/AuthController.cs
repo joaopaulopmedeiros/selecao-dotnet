@@ -8,6 +8,7 @@ using App.Repositories;
 using App.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Security.Claims;
 
 namespace App.Controllers
 {
@@ -23,8 +24,9 @@ namespace App.Controllers
         )
         {
             User user = await (from u in context.Users
-                              where u.Email == model.Email && u.Password == model.Password
-                              select u).FirstOrDefaultAsync();
+                               where u.Email == model.Email && u.Password == model.Password
+                               select u).FirstOrDefaultAsync();
+
             if (user == null)
             {
                 return NotFound(new { message = "Usuário ou senha incorretos" });
@@ -61,6 +63,18 @@ namespace App.Controllers
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
-        public string Authenticated() => String.Format("Authenticated - {0}", User.Identity.Name);
+        public async Task<ActionResult<dynamic>> Authenticated([FromServices] DataContext context)
+        {
+            User user = await (from u in context.Users
+                               where u.Email == User.Identity.Name
+                               select u).FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return NotFound(new { message = "Usuário não encontrado." });
+            }
+
+            return user;
+        }
     }
 }
