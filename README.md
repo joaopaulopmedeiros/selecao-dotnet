@@ -1,8 +1,8 @@
 <div align="center">
-<img src="./.github/others/study-img.png" width="90">
-<h1>
-    Seleção .NET
-</h1>   
+    <img src="./.github/others/study-img.png" width="90">
+    <h1>
+        Seleção .NET
+    </h1>   
 </div>
 
 ## Descrição
@@ -13,6 +13,11 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 
 [Disponível aqui](/.github/evaluation_criteria.md)
 
+## Features
+[x] Cadastro e autenticação de usuário na plataforma (com um cartão de crédito vinculado a sua conta) com JWT.
+[x] Listagem de cursos na plataforma.
+[ ] Matrícula
+
 ## Stack
 
 - [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)
@@ -22,7 +27,7 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 
 #### Login
 
-<img src="./.github/screens/login-desktop.png" width="50%"/>
+<img src="./.github/screens/login-desktop.png" width="100%"/>
 <img src="./.github/screens/login-mobile.png" width="25%">
 
 ## API Documentation
