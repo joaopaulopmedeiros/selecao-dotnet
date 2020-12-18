@@ -5,8 +5,11 @@ using System;
 using Microsoft.AspNetCore.Authorization;
 using App.Services;
 using App.Repositories;
+using App.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
-namespace App.Controllers 
+namespace App.Controllers
 {
     [Route("auth")]
     public class AuthController : ControllerBase
@@ -14,17 +17,23 @@ namespace App.Controllers
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody]User model)
+        public async Task<ActionResult<dynamic>> Authenticate(
+            [FromServices] DataContext context,
+            [FromBody] User model
+        )
         {
-            var user = UserRepository.Get(model.Email, model.Password);
-
-            if (user == null) {
+            User user = await (from u in context.Users
+                              where u.Email == model.Email && u.Password == model.Password
+                              select u).FirstOrDefaultAsync();
+            if (user == null)
+            {
                 return NotFound(new { message = "Usuário ou senha incorretos" });
-            } 
+            }
 
             var token = TokenService.GenerateToken(user);
-            
-            return new {
+
+            return new
+            {
                 user = user,
                 token = token
             };

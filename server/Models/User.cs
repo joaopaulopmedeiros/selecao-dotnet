@@ -30,7 +30,7 @@ namespace App.Models
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
-        [StringLength(16, ErrorMessage = "Este campo deve conter o formato adequado")]
+        [StringLength(17, ErrorMessage = "Este campo deve conter o formato adequado")]
         [DisplayFormat(DataFormatString = "XXX.XXX.XXX.XXXXX")]
         public string CreditCard { get; set; }
 
