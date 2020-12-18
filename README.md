@@ -22,15 +22,15 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 
 #### Login
 
-<img src="./.github/screens/login-desktop.png" width=240/>
-<img src="./.github/screens/login-mobile.png" width=64/>
+<img src="./.github/screens/login-desktop.png" width="50%"/>
+<img src="./.github/screens/login-mobile.png" width="25%">
 
 ## API Documentation
 
 #### [Swagger](/.github/evaluation_criteria.md)
 
-<img src="./.github/swagger/screencapture-swg.png" width=140/>
+<img src="./.github/swagger/screencapture-swg.png" width="50%"/>
 
 #### [Insomnia Exports - HTTP Client](/.github/evaluation_criteria.md)
 
-<img src="./.github/insomnia/screencapture-insomnia.png" width=140/>
+<img src="./.github/insomnia/screencapture-insomnia.png" width="50%"/>
