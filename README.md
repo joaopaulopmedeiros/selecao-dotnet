@@ -14,8 +14,8 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 [Disponível aqui](/.github/evaluation_criteria.md)
 
 ## Features
-[x] Cadastro e autenticação de usuário na plataforma (com um cartão de crédito vinculado a sua conta) com JWT.
-[x] Listagem de cursos na plataforma.
+[x] Cadastro e autenticação de usuário na plataforma (com um cartão de crédito vinculado a sua conta) com JWT. <br>
+[x] Listagem de cursos na plataforma. <br>
 [ ] Matrícula
 
 ## Stack
