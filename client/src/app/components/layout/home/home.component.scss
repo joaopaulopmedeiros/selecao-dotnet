@@ -333,8 +333,9 @@ svg#clouds {
 
   .container {
     width: 100%;
-    h1 {
+    > h1 {
       font-size: 32px;
+      margin: 0 64px 20px;
     }
   }
 
@@ -357,14 +358,34 @@ svg#clouds {
       text-align: start;
       opacity: 1;
       background-color: #f5f3f3;
-      border-bottom: 2px solid rgb(230, 87, 111);
+      border-bottom: 2px solid#0f64b9;
       border-radius: 5px 5px 0px 0px;
       color: #0b2035;
       transition: all .2s ease-in-out;
-      
+
       &:hover {
         transform: scale(1.1);
       }
+    }
+  }
+
+  .footer, .cursos {
+    max-width: 1400px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    
+    .red-education-img {
+      margin: 50px 64px 0;
+      width: 120px;
+    }
+
+    .inspiring {
+      margin: 50px 120px 0;
     }
   }
 
