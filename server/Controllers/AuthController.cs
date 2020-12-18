@@ -35,6 +35,6 @@ namespace App.Controllers
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
-        public string Authenticated() => String.Format("Authenticated = {0}", User.Identity.Name);
+        public string Authenticated() => String.Format("Authenticated - {0}", User.Identity.Name);
     }
 }
