@@ -20,6 +20,8 @@ namespace App.Controllers
             return users;
         }
 
+        [HttpPost]
+        [Route("")]
         public async Task<ActionResult<User>> Post(
             [FromServices] DataContext context,
             [FromBody] User model
