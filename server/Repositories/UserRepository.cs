@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using App.Entities;
+using App.Models;
 using App.Helpers;
 
 namespace App.Repositories

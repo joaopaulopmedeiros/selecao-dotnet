@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace App.Entities
+namespace App.Models
 {
     public class Enrollment
     {

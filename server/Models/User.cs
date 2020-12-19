@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-namespace App.Entities
+namespace App.Models
 {
     public class User
     {

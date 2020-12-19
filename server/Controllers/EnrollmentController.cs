@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using App.Data;
-using App.Entities;
+using App.Models;
 using System.Linq;
 
 namespace App.Controllers
