@@ -14,6 +14,6 @@ namespace App.Entities
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         public double Price { get; set; }
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }

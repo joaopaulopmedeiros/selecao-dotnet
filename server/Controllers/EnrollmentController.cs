@@ -8,29 +8,29 @@ using System.Linq;
 
 namespace App.Controllers
 {
-    [Route("payments")]
+    [Route("enrollments")]
 
-    public class PaymentController : ControllerBase
+    public class EnrollmentController : ControllerBase
     {
 
         [HttpGet]
         [Route("")]
-        public async Task<ActionResult<List<Payment>>> Get([FromServices] DataContext context)
+        public async Task<ActionResult<List<Enrollment>>> Get([FromServices] DataContext context)
         {
-            var payments = await context.Payments.ToListAsync();
-            return payments;
+            var Enrollments = await context.Enrollments.ToListAsync();
+            return Enrollments;
         }
 
         [HttpPost]
         [Route("")]
-        public async Task<ActionResult<Payment>> Store(
+        public async Task<ActionResult<Enrollment>> Store(
             [FromServices] DataContext context,
-            [FromBody] Payment model
+            [FromBody] Enrollment model
         )
         {
             if (ModelState.IsValid)
             {
-                context.Payments.Add(model);
+                context.Enrollments.Add(model);
                 await context.SaveChangesAsync();
                 return model;
             }

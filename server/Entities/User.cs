@@ -34,6 +34,6 @@ namespace App.Entities
         [DisplayFormat(DataFormatString = "XXX.XXX.XXX.XXXXX")]
         public string CreditCard { get; set; }
 
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }

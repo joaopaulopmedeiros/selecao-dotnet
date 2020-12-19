@@ -2,12 +2,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace App.Entities
 {
-    public class Payment
+    public class Enrollment
     {
-    public int UserId { get; set; }
-    public int CourseId { get; set; }
-
+    [Key]
+    public int Id { get; set; }
+    [Required]
     public virtual User User { get; set; }
+    [Required]
     public virtual Course Course { get; set; } 
     }
 }

@@ -7,7 +7,7 @@ namespace App.Data
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Course> Courses { get; set; }
-        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
@@ -17,8 +17,7 @@ namespace App.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Payment>()
-                .HasKey(x => new { x.UserId, x.CourseId });
+
         }
     }
 }
