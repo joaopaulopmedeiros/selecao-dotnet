@@ -10,6 +10,7 @@ using System.Linq;
 using System.Security.Claims;
 using App.Helpers;
 using App.Repositories;
+using App.Resources;
 
 namespace App.Controllers
 {
@@ -22,7 +23,7 @@ namespace App.Controllers
         public async Task<ActionResult<dynamic>> Authenticate(
             [FromServices] AuthService authService,
             [FromServices] TokenService tokenService,
-            [FromBody] User model
+            [FromBody] LoginRequest model
         )
         {
             User user = await authService.Attempt(model.Email, model.Password);
