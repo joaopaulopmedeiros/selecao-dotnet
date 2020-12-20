@@ -40,6 +40,7 @@ namespace server
             
             services.AddScoped<TokenService, TokenService>();
             services.AddScoped<AuthService, AuthService>();
+            services.AddScoped<EmailService, EmailService>();
             
             services.AddScoped<UserRepository, UserRepository>();
             services.AddScoped<CourseRepository, CourseRepository>();

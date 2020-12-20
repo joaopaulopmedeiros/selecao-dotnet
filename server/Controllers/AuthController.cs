@@ -44,8 +44,9 @@ namespace App.Controllers
 
         [HttpPost]
         [Route("register")]
-        public async Task<ActionResult<User>> Post(
+        public async Task<ActionResult<dynamic>> Post(
             [FromServices] UserRepository userRepository,
+            [FromServices] EmailService emailService,
             [FromBody] User model
         )
         {
@@ -53,7 +54,14 @@ namespace App.Controllers
             {
                 model.Password = Hash.Make(model.Password);
                 await userRepository.Add(model);
-                return model;
+
+                var mockEmail = emailService.Send(model.Email);
+
+                return new 
+                {
+                    user = model,
+                    mockEmail = mockEmail
+                };
             }
             else
             {
