@@ -6,6 +6,7 @@ using App.Data;
 using App.Models;
 using System.Linq;
 using App.Repositories;
+using App.Resources;
 
 namespace App.Controllers
 {
@@ -24,15 +25,18 @@ namespace App.Controllers
 
         [HttpPost]
         [Route("")]
-        public async Task<ActionResult<Enrollment>> Store(
+        public async Task<ActionResult<dynamic>> Post(
             [FromServices] EnrollmentRepository enrollmentRepository,
-            [FromBody] Enrollment model
+            [FromBody] EnrollmentRequest model
         )
         {
             if (ModelState.IsValid)
             {
-                await enrollmentRepository.Add(model);
-                return model;
+                var enrollment = await enrollmentRepository.Add(model);
+                
+                if(enrollment == null) return BadRequest("Ao menos um dos campos é inexistente");
+                
+                return enrollment;
             }
             else
             {
