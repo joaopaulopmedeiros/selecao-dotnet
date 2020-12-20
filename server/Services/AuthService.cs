@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using App.Models;
 using App.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using App.Data;
