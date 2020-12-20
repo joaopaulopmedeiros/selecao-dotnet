@@ -20,6 +20,7 @@ namespace App.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Authenticate(
             [FromServices] AuthService authService,
+            [FromServices] TokenService tokenService,
             [FromBody] User model
         )
         {
@@ -30,7 +31,7 @@ namespace App.Controllers
                 return NotFound(new { message = "Usuário ou senha incorretos" });
             }
 
-            var token = TokenService.GenerateToken(user);
+            var token = tokenService.GenerateToken(user);
 
             return new
             {

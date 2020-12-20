@@ -1,13 +1,16 @@
 using System.Threading.Tasks;
 using App.Helpers;
 using Microsoft.AspNetCore.Authorization;
-using App.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
+using App.Data;
+using App.Contracts.Services;
+
+
 namespace App.Services
 {
-    public class AuthService
+    public class AuthService : IAuthService
     {
         protected DataContext authRepository;
 

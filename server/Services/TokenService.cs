@@ -7,12 +7,19 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace App.Services
 {
-    public static class TokenService
+    public class TokenService
     {
-        public static string GenerateToken(User user)
+        public TokenService() 
+        {
+            
+        }
+
+        public string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
+
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]{
@@ -24,7 +31,9 @@ namespace App.Services
                     SecurityAlgorithms.HmacSha256Signature
                 )
             };
+            
             var token = tokenHandler.CreateToken(tokenDescriptor);
+            
             return tokenHandler.WriteToken(token);
         }
     }
