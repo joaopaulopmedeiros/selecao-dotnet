@@ -16,7 +16,7 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 ## Features
 [x] Cadastro e autenticação de usuário na plataforma (com um cartão de crédito vinculado a sua conta) através de JWT. <br>
 [x] Listagem de cursos na plataforma. <br>
-[x] Matrícula
+[x] Matrícula.
 
 ## Stack
 
