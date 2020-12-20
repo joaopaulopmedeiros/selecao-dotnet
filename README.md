@@ -37,5 +37,5 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 <img src="./.github/insomnia/screencapture-insomnia.png" width="50%"/>
 
 #### Considerações 
-<a href="./.github/considerations.md/>Disponível aqu</a>
+<a href="./.github/considerations.md/">Disponível aqui</a>
 
