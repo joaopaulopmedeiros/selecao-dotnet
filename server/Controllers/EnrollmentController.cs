@@ -34,7 +34,7 @@ namespace App.Controllers
             {
                 var enrollment = await enrollmentRepository.Add(model);
                 
-                if(enrollment == null) return BadRequest("Ao menos um dos campos é inexistente");
+                if(enrollment == null) return BadRequest(new { message = "Usuário ou curso estão incorretos" });
                 
                 return enrollment;
             }
