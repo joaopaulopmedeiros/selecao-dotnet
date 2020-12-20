@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using App.Data;
 using Microsoft.EntityFrameworkCore;
+using App.Repositories;
 
 namespace server
 {
@@ -34,7 +35,8 @@ namespace server
         {
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
             services.AddScoped<DataContext, DataContext>();
-
+            services.AddScoped<AuthRepository, AuthRepository>();
+            
             services.AddCors();
             services.AddControllers();
 

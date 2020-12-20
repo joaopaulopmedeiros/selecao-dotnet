@@ -4,12 +4,12 @@ using App.Models;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using App.Services;
-using App.Repositories;
 using App.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Security.Claims;
 using App.Helpers;
+using App.Repositories;
 
 namespace App.Controllers
 {
@@ -65,12 +65,9 @@ namespace App.Controllers
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
-        public async Task<ActionResult<User>> Authenticated([FromServices] DataContext context)
+        public async Task<ActionResult<User>> Authenticated([FromServices] AuthRepository authRepository)
         {
-            User user = await (from u in context.Users
-                               where u.Email == User.Identity.Name
-                               select u).FirstOrDefaultAsync();
-
+            User user = await authRepository.getAuthUser(User.Identity.Name);
             return user;
         }
     }
