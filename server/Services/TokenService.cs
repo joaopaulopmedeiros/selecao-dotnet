@@ -4,10 +4,11 @@ using System.Security.Claims;
 using System.Text;
 using App.Models;
 using Microsoft.IdentityModel.Tokens;
+using App.Contracts.Services;
 
 namespace App.Services
 {
-    public class TokenService
+    public class TokenService : ITokenService 
     {
         public TokenService() 
         {
