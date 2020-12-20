@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using App.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
+using App.Helpers;
 using App.Data;
 using App.Contracts.Services;
 

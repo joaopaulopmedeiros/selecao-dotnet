@@ -12,12 +12,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using App;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using App.Data;
 using Microsoft.EntityFrameworkCore;
+
+using App;
+using App.Data;
 using App.Services;
+using App.Repositories;
 
 namespace server
 {
@@ -37,6 +39,7 @@ namespace server
             services.AddScoped<DataContext, DataContext>();
             services.AddScoped<TokenService, TokenService>();
             services.AddScoped<AuthService, AuthService>();
+            services.AddScoped<UserRepository, UserRepository>();
             
             services.AddCors();
             services.AddControllers();

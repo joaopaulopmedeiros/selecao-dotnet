@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Security.Claims;
 using App.Helpers;
+using App.Repositories;
 
 namespace App.Controllers
 {
@@ -43,15 +44,14 @@ namespace App.Controllers
         [HttpPost]
         [Route("register")]
         public async Task<ActionResult<User>> Post(
-            [FromServices] DataContext context,
+            [FromServices] UserRepository userRepository,
             [FromBody] User model
         )
         {
             if (ModelState.IsValid)
             {
                 model.Password = Hash.Make(model.Password);
-                context.Users.Add(model);
-                await context.SaveChangesAsync();
+                await userRepository.Add(model);
                 return model;
             }
             else
