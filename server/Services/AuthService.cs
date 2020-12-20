@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using App.Models;
+using App.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using App.Data;
 using Microsoft.EntityFrameworkCore;
@@ -16,8 +17,15 @@ namespace App.Services
             this.authRepository = context;
         }
 
+        public async Task<dynamic> Attempt(string email, string password)
+        {
+            return await (from u in this.authRepository.Users
+                          where u.Email == email && u.Password == Hash.Make(password)
+                          select u).FirstOrDefaultAsync();
+        }
+
         [Authorize]
-        public async Task<User> getAuthUser(string email)
+        public async Task<dynamic> getAuthUser(string email)
         {
             return await (from u in this.authRepository.Users
                           where u.Email == email

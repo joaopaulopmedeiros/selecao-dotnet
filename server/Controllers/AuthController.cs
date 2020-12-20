@@ -19,13 +19,11 @@ namespace App.Controllers
         [Route("login")]
         [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Authenticate(
-            [FromServices] DataContext context,
+            [FromServices] AuthService authService,
             [FromBody] User model
         )
         {
-            User user = await (from u in context.Users
-                               where u.Email == model.Email && u.Password == Hash.Make(model.Password)
-                               select u).FirstOrDefaultAsync();
+            User user = await authService.Attempt(model.Email, model.Password);
 
             if (user == null)
             {
