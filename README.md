@@ -23,7 +23,7 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 - [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)
 - [Angular](https://angular.io/)
 
-## UI - User Interface
+## UI - User Interface - estático
 <img src="./.github/screens/presentation.png" width="80%"/>
 
 ## API Documentation
