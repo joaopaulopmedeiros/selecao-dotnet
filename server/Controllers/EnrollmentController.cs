@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using App.Data;
 using App.Models;
 using System.Linq;
+using App.Repositories;
 
 namespace App.Controllers
 {
@@ -15,9 +16,9 @@ namespace App.Controllers
 
         [HttpGet]
         [Route("")]
-        public async Task<ActionResult<List<Enrollment>>> Get([FromServices] DataContext context)
+        public async Task<ActionResult<List<Enrollment>>> Get([FromServices] EnrollmentRepository enrollmentRepository)
         {
-            var Enrollments = await context.Enrollments.ToListAsync();
+            var Enrollments = await enrollmentRepository.ListAll();
             return Enrollments;
         }
 
@@ -30,7 +31,7 @@ namespace App.Controllers
         {
             if (ModelState.IsValid)
             {
-                await enrollmentRepository.add(model);
+                await enrollmentRepository.Add(model);
                 return model;
             }
             else

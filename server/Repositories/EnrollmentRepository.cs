@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
-using System.Linq;
 
+using Microsoft.EntityFrameworkCore;
 using App.Data;
 using App.Models;
 using App.Contracts.Repositories;
@@ -15,6 +15,12 @@ namespace App.Repositories
         {
             this.context = context;
         }
+
+        public async Task<dynamic> ListAll()
+        {
+            return await this.context.Enrollments.ToListAsync();
+        }        
+
         public async Task<dynamic> Add(Enrollment model)
         {
             this.context.Enrollments.Add(model);
