@@ -59,7 +59,6 @@ namespace App.Controllers
 
                 return new 
                 {
-                    user = model,
                     mockEmail = mockEmail
                 };
             }
@@ -70,7 +69,7 @@ namespace App.Controllers
         }
 
         [HttpGet]
-        [Route("authenticated")]
+        [Route("user")]
         [Authorize]
         public async Task<ActionResult<User>> Authenticated([FromServices] AuthService authService)
         {
