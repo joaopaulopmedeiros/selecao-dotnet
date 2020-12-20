@@ -14,9 +14,9 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 [Disponível aqui](/.github/evaluation_criteria.md)
 
 ## Features
-[x] Cadastro e autenticação de usuário na plataforma (com um cartão de crédito vinculado a sua conta) com JWT. <br>
+[x] Cadastro e autenticação de usuário na plataforma (com um cartão de crédito vinculado a sua conta) através de JWT. <br>
 [x] Listagem de cursos na plataforma. <br>
-[ ] Matrícula
+[x] Matrícula
 
 ## Stack
 
@@ -35,3 +35,7 @@ Sistema educacional simples proposto como desafio da etapa de avaliação técni
 #### [Insomnia Exports - HTTP Client](/.github/evaluation_criteria.md)
 
 <img src="./.github/insomnia/screencapture-insomnia.png" width="50%"/>
+
+#### Considerações 
+<a href="./.github/considerations.md/>Disponível aqu</a>
+
