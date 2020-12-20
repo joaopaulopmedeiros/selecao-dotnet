@@ -1,0 +1,15 @@
+<div class="signin-signup">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1 class="title">Login</h1>
+        <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="email" name="email" placeholder="E-mail" required>
+        </div>
+        <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password"placeholder="Senha"  required>
+        </div>
+        <button class="submit-btn" type="submit">Entrar</button>
+        <!--<button type="button" [routerLink]="['/register']">Criar conta</button>-->
+    </form>
+</div>
