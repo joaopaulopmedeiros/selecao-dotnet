@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Security.Claims;
 using App.Helpers;
-using App.Repositories;
 
 namespace App.Controllers
 {
@@ -65,9 +64,9 @@ namespace App.Controllers
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
-        public async Task<ActionResult<User>> Authenticated([FromServices] AuthRepository authRepository)
+        public async Task<ActionResult<User>> Authenticated([FromServices] AuthService authService)
         {
-            User user = await authRepository.getAuthUser(User.Identity.Name);
+            User user = await authService.getAuthUser(User.Identity.Name);
             return user;
         }
     }

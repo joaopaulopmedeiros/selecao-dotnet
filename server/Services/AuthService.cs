@@ -1,21 +1,17 @@
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using App.Models;
-using System;
 using Microsoft.AspNetCore.Authorization;
-using App.Services;
 using App.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Security.Claims;
 
-namespace App.Repositories
+namespace App.Services
 {
-    public class AuthRepository
+    public class AuthService
     {
         protected DataContext authRepository;
 
-        public AuthRepository(DataContext context)
+        public AuthService(DataContext context)
         {
             this.authRepository = context;
         }
@@ -27,10 +23,5 @@ namespace App.Repositories
                           where u.Email == email
                           select u).FirstOrDefaultAsync();
         }
-        /* 
-await (from u in context.Users
-               where u.Email == User.Identity.Name
-               select u).FirstOrDefaultAsync();
-*/
     }
 }
