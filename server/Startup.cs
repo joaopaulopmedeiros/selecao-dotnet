@@ -37,10 +37,13 @@ namespace server
         {
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
             services.AddScoped<DataContext, DataContext>();
+            
             services.AddScoped<TokenService, TokenService>();
             services.AddScoped<AuthService, AuthService>();
+            
             services.AddScoped<UserRepository, UserRepository>();
             services.AddScoped<CourseRepository, CourseRepository>();
+            services.AddScoped<EnrollmentRepository, EnrollmentRepository>();
 
             services.AddCors();
             services.AddControllers();

@@ -24,14 +24,13 @@ namespace App.Controllers
         [HttpPost]
         [Route("")]
         public async Task<ActionResult<Enrollment>> Store(
-            [FromServices] DataContext context,
+            [FromServices] EnrollmentRepository enrollmentRepository,
             [FromBody] Enrollment model
         )
         {
             if (ModelState.IsValid)
             {
-                context.Enrollments.Add(model);
-                await context.SaveChangesAsync();
+                await enrollmentRepository.add(model);
                 return model;
             }
             else
