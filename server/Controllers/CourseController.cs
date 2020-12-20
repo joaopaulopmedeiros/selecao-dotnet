@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using App.Data;
 using App.Models;
+using App.Repositories;
 
 namespace App.Controllers
 {
@@ -14,23 +15,22 @@ namespace App.Controllers
         [HttpGet]
         [Route("")]
 
-        public async Task<ActionResult<List<Course>>> Get([FromServices] DataContext context)
+        public async Task<ActionResult<List<Course>>> Get([FromServices] CourseRepository courseRepository)
         {
-            var courses = await context.Courses.ToListAsync();
+            var courses = await courseRepository.ListAll();
             return courses;
         }
 
         [HttpPost]
         [Route("")]
         public async Task<ActionResult<Course>> Store(
-            [FromServices] DataContext context,
+            [FromServices] CourseRepository courseRepository,
             [FromBody] Course model
         )
         {
             if (ModelState.IsValid)
             {
-                context.Courses.Add(model);
-                await context.SaveChangesAsync();
+                await courseRepository.Add(model);
                 return model;
             }
             else
